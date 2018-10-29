@@ -5,7 +5,7 @@ HOST: http://polls.apiblueprint.org/
 
 This is example API to keep track of known elements and their properties
 
-## Questions Collection [/elements]
+## Elements Collection [/elements]
 
 ### List All Elements [GET]
 
@@ -13,68 +13,74 @@ This is example API to keep track of known elements and their properties
 
         [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
+                "id": 1,
+                "name": "Hydrogen",
+                "atomic_weight": 1.008,
+                "atomic_number": 1,
+                "group": 1,
+                "period": 1,
+                "finder": "Henry Cavendish"
+            },
+            {
+                "id": 2,
+                "name": "Helium",
+                "atomic_weight": 4.002,
+                "atomic_number": 2,
+                "group": 18,
+                "period": 1,
+                "finder": "Pierre Janssen"
+            },
+            {
+                "id": 3,
+                "name": "Lithium",
+                "atomic_weight": 6.94,
+                "atomic_number": 3,
+                "group": 1,
+                "period": 2,
+                "finder": "Johan August Arfwedson"
             }
         ]
 
-### Create a New Question [POST]
+### Create a New Element [POST]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+If you have discovered new element, you can add it to periodic table using this endpoint.
 
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+                "name": "Beryllium",
+                "atomic_weight": 9.012,
+                "atomic_number": 4,
+                "group": 2,
+                "period": 2,
+                "finder": "Louis Nicolas Vauquelin"
         }
 
-+ Response 201 (application/json)
++ Response 204 (application/json)
 
-    + Headers
+## Manage Elements [/elements/{id}]
 
-            Location: /questions/2
++ Parameters 
+    + id: 1
 
-    + Body
+### Edit an Element [PUT]
 
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
+There is a mistake in periodic table that needs to be fixed.
+
++ Request (application/json)
+
+        {
+                "name": "Hydrogen",
+                "atomic_weight": 4.002,
+                "atomic_number": 2,
+                "group": 18,
+                "period": 1,
+                "finder": "Pierre Janssen"
+        }
+
++ Response 204 (application/json)
+
+### Delete an Element [DELETE]
+
+
++ Response 204
