@@ -3,7 +3,7 @@ HOST: http://polls.apiblueprint.org/
 
 # tshchemistry
 
-This is example API to keep track of known elements and their properties
+This is examplde API to keep track of known elements and their properties
 
 ## Elements Collection [/elements]
 
@@ -15,8 +15,8 @@ This is example API to keep track of known elements and their properties
             {
                 "id": 1,
                 "name": "Hydrogen",
-                "atomic_weight": 1.008,
-                "atomic_number": 1,
+                "atomicWeight": 1.008,
+                "atomicNumber": 1,
                 "group": 1,
                 "period": 1,
                 "finder": "Henry Cavendish"
@@ -24,8 +24,8 @@ This is example API to keep track of known elements and their properties
             {
                 "id": 2,
                 "name": "Helium",
-                "atomic_weight": 4.002,
-                "atomic_number": 2,
+                "atomicWeight": 4.002,
+                "atomicNumber": 2,
                 "group": 18,
                 "period": 1,
                 "finder": "Pierre Janssen"
@@ -33,8 +33,8 @@ This is example API to keep track of known elements and their properties
             {
                 "id": 3,
                 "name": "Lithium",
-                "atomic_weight": 6.94,
-                "atomic_number": 3,
+                "atomicWeight": 6.94,
+                "atomicNumber": 3,
                 "group": 1,
                 "period": 2,
                 "finder": "Johan August Arfwedson"
@@ -49,19 +49,36 @@ If you have discovered new element, you can add it to periodic table using this 
 
         {
                 "name": "Beryllium",
-                "atomic_weight": 9.012,
-                "atomic_number": 4,
+                "atomicWeight": 9.012,
+                "atomicNumber": 4,
                 "group": 2,
                 "period": 2,
                 "finder": "Louis Nicolas Vauquelin"
         }
 
-+ Response 204 (application/json)
++ Response 204
 
 ## Manage Elements [/elements/{id}]
 
 + Parameters 
     + id: 1
+    
+
+### Fetch single an Element [GET]
+
+You need to get one element 
+
++ Response 200 (application/json)
+
+        {
+                "name": "Hydrogen",
+                "atomicWeight": 4.002,
+                "atomicNumber": 2,
+                "group": 18,
+                "period": 1,
+                "finder": "Pierre Janssen"
+        }
+    
 
 ### Edit an Element [PUT]
 
@@ -71,16 +88,16 @@ There is a mistake in periodic table that needs to be fixed.
 
         {
                 "name": "Hydrogen",
-                "atomic_weight": 4.002,
-                "atomic_number": 2,
+                "atomicWeight": 4.002,
+                "atomicNumber": 2,
                 "group": 18,
                 "period": 1,
                 "finder": "Pierre Janssen"
         }
 
-+ Response 204 (application/json)
++ Response 204 
+
 
 ### Delete an Element [DELETE]
-
 
 + Response 204
